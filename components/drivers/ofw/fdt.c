@@ -86,15 +86,15 @@ rt_uint64_t rt_fdt_translate_address(void *fdt, int nodeoffset, rt_uint64_t addr
 
         if (parent >= 0)
         {
-            ranges = fdt_getprop(fdt, nodeoffset, "ranges", &length);
+            ranges = fdt_getprop(fdt, parent, "ranges", &length);
         }
 
         if (ranges && length > 0)
         {
-            local.addr_cells = fdt_address_cells(fdt, nodeoffset);
-            local.size_cells = fdt_size_cells(fdt, nodeoffset);
-            cpu.addr_cells = fdt_io_addr_cells(fdt, nodeoffset);
-            cpu.size_cells = fdt_io_size_cells(fdt, nodeoffset);
+            local.addr_cells = fdt_address_cells(fdt, parent);
+            local.size_cells = fdt_size_cells(fdt, parent);
+            cpu.addr_cells = fdt_io_addr_cells(fdt, parent);
+            cpu.size_cells = fdt_io_size_cells(fdt, parent);
 
             group_len = local.addr_cells + cpu.addr_cells + local.size_cells;
 
@@ -106,7 +106,7 @@ rt_uint64_t rt_fdt_translate_address(void *fdt, int nodeoffset, rt_uint64_t addr
 
                 if (local.addr <= address && local.addr + local.size > address)
                 {
-                    ret += address - cpu.addr;
+                    ret = address - local.addr + cpu.addr;
                     break;
                 }
 
@@ -333,8 +333,6 @@ static rt_err_t fdt_reserved_memory_reg(int nodeoffset, const char *uname)
 
                 base = rt_fdt_translate_address(_fdt, nodeoffset, base);
                 reserve_memregion(fdt_get_name(_fdt, nodeoffset, RT_NULL), base, size);
-
-                len -= t_len;
             }
         }
     }
