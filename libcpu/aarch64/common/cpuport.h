@@ -81,6 +81,37 @@ rt_inline int __rt_ffs(int value)
 #endif
 }
 
+rt_inline unsigned long __rt_clz(unsigned long word)
+{
+#ifdef __GNUC__
+    return __builtin_clz(word);
+#else
+    unsigned long val;
+
+    __asm__ volatile ("clz %0, %1"
+        :"=r"(val)
+        :"r"(word));
+
+    return val;
+#endif
+}
+
+rt_inline unsigned long __rt_ffsl(unsigned long word)
+{
+#ifdef __GNUC__
+    return __builtin_ffsl(word);
+#else
+    if (!word)
+    {
+        return 0;
+    }
+
+    __asm__ volatile ("rbit %0, %0" : "+r" (word));
+
+    return __rt_clz(word);
+#endif
+}
+
 #endif /* RT_USING_CPU_FFS */
 
 #ifdef ARCH_USING_HW_THREAD_SELF
