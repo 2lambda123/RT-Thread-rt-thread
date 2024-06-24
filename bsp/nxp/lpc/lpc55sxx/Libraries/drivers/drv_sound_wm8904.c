@@ -10,7 +10,7 @@
 
 #include <rtthread.h>
 #include <drivers/audio.h>
-#include <drivers/i2c.h>
+#include <drivers/i2c_core.h>
 #include "drv_sound_wm8904.h"
 
 /**

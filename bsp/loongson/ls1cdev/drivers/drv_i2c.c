@@ -9,7 +9,7 @@
  */
 
 #include <rtthread.h>
-#include <drivers/i2c.h>
+#include <drivers/i2c_core.h>
 #include <drivers/i2c-bit-ops.h>
 #include "drv_i2c.h"
 #include "../libraries/ls1c_gpio.h"
@@ -81,7 +81,7 @@ static rt_int32_t ls1c_get_scl(void *data)
 }
 
 
-static const struct rt_i2c_bit_ops bit_ops = 
+static const struct rt_i2c_bit_ops bit_ops =
 {
     .data       = RT_NULL,
     .pin_init   = ls1c_i2c_gpio_init,
