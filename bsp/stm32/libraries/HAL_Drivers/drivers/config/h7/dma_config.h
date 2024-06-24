@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2023, RT-Thread Development Team
+ * Copyright (c) 2006-2024, RT-Thread Development Team
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -27,6 +27,13 @@ extern "C" {
 #define UART2_RX_DMA_REQUEST             DMA_REQUEST_USART2_RX
 #define UART2_RX_DMA_IRQ                 DMA1_Stream0_IRQn
 #endif
+#if defined(BSP_UART4_RX_USING_DMA) && !defined(UART4_RX_DMA_INSTANCE)
+#define UART4_DMA_RX_IRQHandler          DMA1_Stream0_IRQHandler
+#define UART4_RX_DMA_RCC                 RCC_AHB1ENR_DMA1EN
+#define UART4_RX_DMA_INSTANCE            DMA1_Stream0
+#define UART4_RX_DMA_REQUEST             DMA_REQUEST_UART4_RX
+#define UART4_RX_DMA_IRQ                 DMA1_Stream0_IRQn
+#endif
 
 /* DMA1 stream1 */
 #if defined(BSP_UART2_TX_USING_DMA) && !defined(UART2_TX_DMA_INSTANCE)
@@ -35,6 +42,13 @@ extern "C" {
 #define UART2_TX_DMA_INSTANCE            DMA1_Stream1
 #define UART2_TX_DMA_REQUEST             DMA_REQUEST_USART2_TX
 #define UART2_TX_DMA_IRQ                 DMA1_Stream1_IRQn
+#endif
+#if defined(BSP_UART4_TX_USING_DMA) && !defined(UART4_TX_DMA_INSTANCE)
+#define UART4_DMA_TX_IRQHandler          DMA1_Stream1_IRQHandler
+#define UART4_TX_DMA_RCC                 RCC_AHB1ENR_DMA1EN
+#define UART4_TX_DMA_INSTANCE            DMA1_Stream1
+#define UART4_TX_DMA_REQUEST             DMA_REQUEST_USART4_TX
+#define UART4_TX_DMA_IRQ                 DMA1_Stream1_IRQn
 #endif
 
 /* DMA1 stream2 */
@@ -60,7 +74,13 @@ extern "C" {
 #define SPI2_TX_DMA_INSTANCE             DMA1_Stream4
 #define SPI2_TX_DMA_IRQ                  DMA1_Stream4_IRQn
 #endif
-
+#if defined(BSP_UART1_RX_USING_DMA) && !defined(UART1_RX_DMA_INSTANCE)
+#define UART1_DMA_RX_IRQHandler          DMA1_Stream4_IRQHandler
+#define UART1_RX_DMA_RCC                 RCC_AHB1ENR_DMA1EN
+#define UART1_RX_DMA_INSTANCE            DMA1_Stream4
+#define UART1_RX_DMA_REQUEST             DMA_REQUEST_USART1_RX
+#define UART1_RX_DMA_IRQ                 DMA1_Stream4_IRQn
+#endif
 
 /* DMA1 stream5 */
 #if defined(BSP_SPI3_TX_USING_DMA) && !defined(SPI3_TX_DMA_INSTANCE)
@@ -69,8 +89,22 @@ extern "C" {
 #define SPI3_TX_DMA_INSTANCE             DMA1_Stream5
 #define SPI3_TX_DMA_IRQ                  DMA1_Stream5_IRQn
 #endif
+#if defined(BSP_UART1_TX_USING_DMA) && !defined(UART1_TX_DMA_INSTANCE)
+#define UART1_DMA_TX_IRQHandler          DMA1_Stream5_IRQHandler
+#define UART1_TX_DMA_RCC                 RCC_AHB1ENR_DMA1EN
+#define UART1_TX_DMA_INSTANCE            DMA1_Stream5
+#define UART1_TX_DMA_REQUEST             DMA_REQUEST_USART1_TX
+#define UART1_TX_DMA_IRQ                 DMA1_Stream5_IRQn
+#endif
 
 /* DMA1 stream6 */
+#if defined(BSP_I2C1_RX_USING_DMA) && !defined(I2C_RX_DMA_INSTANCE)
+#define I2C1_DMA_RX_IRQHandler           DMA1_Stream6_IRQHandler
+#define I2C1_RX_DMA_RCC                  RCC_AHB1ENR_DMA1EN
+#define I2C1_RX_DMA_INSTANCE             DMA1_Stream6
+#define I2C1_RX_DMA_REQUEST              DMA_REQUEST_I2C1_RX
+#define I2C1_RX_DMA_IRQ                  DMA1_Stream6_IRQn
+#endif
 
 /* DMA1 stream7 */
 #if defined(BSP_SPI3_TX_USING_DMA) && !defined(SPI3_TX_DMA_INSTANCE)
@@ -78,6 +112,13 @@ extern "C" {
 #define SPI3_TX_DMA_RCC                  RCC_AHB1ENR_DMA1EN
 #define SPI3_TX_DMA_INSTANCE             DMA1_Stream7
 #define SPI3_TX_DMA_IRQ                  DMA1_Stream7_IRQn
+#endif
+#if defined(BSP_I2C1_TX_USING_DMA) && !defined(I2C1_TX_DMA_INSTANCE)
+#define I2C1_DMA_TX_IRQHandler           DMA1_Stream7_IRQHandler
+#define I2C1_TX_DMA_RCC                  RCC_AHB1ENR_DMA1EN
+#define I2C1_TX_DMA_INSTANCE             DMA1_Stream7
+#define I2C1_TX_DMA_REQUEST              DMA_REQUEST_I2C1_TX
+#define I2C1_TX_DMA_IRQ                  DMA1_Stream7_IRQn
 #endif
 
 /* DMA2 stream0 */
