@@ -20,7 +20,7 @@
 #include "fio_mux.h"
 #include "fmio_hw.h"
 #include "fmio.h"
-#include "drivers/i2c.h"
+#include "drivers/i2c_core.h"
 #include "fparameters.h"
 #ifdef RT_USING_SMART
     #include <ioremap.h>

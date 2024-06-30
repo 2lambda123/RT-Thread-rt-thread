@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2023, RT-Thread Development Team
+ * Copyright (c) 2006-2024, RT-Thread Development Team
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -94,7 +94,7 @@ extern "C" {
 #endif /* RT_USING_SERIAL */
 
 #ifdef RT_USING_I2C
-#include "drivers/i2c.h"
+#include "drivers/i2c_core.h"
 #include "drivers/i2c_dev.h"
 
 #ifdef RT_USING_I2C_BITOPS

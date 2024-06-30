@@ -9,7 +9,7 @@
  */
 
 #include <rtthread.h>
-#include <drivers/i2c.h>
+#include <drivers/i2c_core.h>
 #include <dm36x.h>
 
 /* ----- global defines ----------------------------------------------- */
