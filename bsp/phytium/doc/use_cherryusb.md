@@ -54,11 +54,11 @@ lsusb -t
 - 具体的 USB 设备使用可以参考 CherryUSB 使用说明，以及 [Phytium FreeRTOS SDK 的使用键盘、鼠标和U盘](https://gitee.com/phytium_embedded/phytium-free-rtos-sdk/blob/master/example/peripheral/usb/xhci_platform)，以及[在 LVGL 中使用鼠标键盘](https://gitee.com/phytium_embedded/phytium-free-rtos-sdk/tree/master/example/peripheral/media/lvgl_indev)
 
 
-## 使用 USB 2.0 控制器（PUSB2 Device 模式） 
+## 使用 USB 2.0 控制器（PUSB2 Device 模式）
 
 > Note: 固件会配置 USB 2.0 控制器的的工作模式，默认地，E2000 D/Q Demo 板工作为 Device 模式，飞腾派工作为 Host 模式，本例程不支持切换工作模式，修改默认工作模式需要联系 FAE 更换固件或修改电路
 
-- 如图所示将 E2000 D/Q Demo 板的 USB_OTG 接口和一台 Windows PC 连接 
+- 如图所示将 E2000 D/Q Demo 板的 USB_OTG 接口和一台 Windows PC 连接
 
 > E2000 D/Q Demo 板只引出 USB 2.0 0 号控制器，使用其它控制器需要修改代码
 

@@ -52,7 +52,7 @@ boot:
 debug:
 	@$(OD) -D rtthread_a64.elf > rtthread_a64.asm
 	@$(OD) -S rtthread_a64.elf > rtthread_a64.dis
-	
+
 all:
 	@echo "Build started..."
 	scons -j1024

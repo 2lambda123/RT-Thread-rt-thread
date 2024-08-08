@@ -51,7 +51,7 @@ boot:
 debug:
 	@$(OD) -D rtthread_a32.elf > rtthread_a32.asm
 	@$(OD) -S rtthread_a32.elf > rtthread_a32.dis
-	
+
 all:
 	@echo "Build started..."
 	scons -j1024

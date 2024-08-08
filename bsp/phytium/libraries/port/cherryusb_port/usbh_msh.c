@@ -22,11 +22,11 @@ static int usb_host_init(int argc, char **argv)
 
     err = usbh_initialize(busid, usb_hc_get_register_base(busid));
     if (err) {
-        rt_kprintf("initialize usb%d@0x%x failed, err = %d\n", 
+        rt_kprintf("initialize usb%d@0x%x failed, err = %d\n",
                     busid, usb_hc_get_register_base(busid), err);
     } else {
-        rt_kprintf("initialize usb%d@0x%x success\n", 
-                    busid, usb_hc_get_register_base(busid));      
+        rt_kprintf("initialize usb%d@0x%x success\n",
+                    busid, usb_hc_get_register_base(busid));
     }
 
     return err;
@@ -45,11 +45,11 @@ static int usb_host_deinit(int argc, char **argv)
 
     err = usbh_deinitialize(busid);
     if (err) {
-        rt_kprintf("deinitialize usb%d@0x%x failed, err = %d\n", 
+        rt_kprintf("deinitialize usb%d@0x%x failed, err = %d\n",
                     busid, usb_hc_get_register_base(busid), err);
     } else {
-        rt_kprintf("deinitialize usb%d@0x%x success\n", 
-                    busid, usb_hc_get_register_base(busid));      
+        rt_kprintf("deinitialize usb%d@0x%x success\n",
+                    busid, usb_hc_get_register_base(busid));
     }
 
     return err;
