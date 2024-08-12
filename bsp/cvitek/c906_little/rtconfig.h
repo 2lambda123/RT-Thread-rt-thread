@@ -94,6 +94,9 @@
 #define RT_USING_SERIAL_V1
 #define RT_SERIAL_USING_DMA
 #define RT_SERIAL_RB_BUFSZ 64
+#define RT_USING_CPUTIME
+#define RT_USING_CPUTIME_RISCV
+#define CPUTIME_TIMER_FREQ 25000000
 #define RT_USING_PIN
 /* end of Device Drivers */
 
@@ -329,11 +332,10 @@
 #define UART_IRQ_BASE 30
 /* end of General Drivers Configuration */
 #define BSP_USING_C906_LITTLE
-#define PLIC_PHY_ADDR 0x70000000
+#define C906_PLIC_PHY_ADDR 0x70000000
 #define IRQ_MAX_NR 61
-#define TIMER_CLK_FREQ 25000000
-#define GPIO_IRQ_BASE 41
-#define SYS_GPIO_IRQ_BASE 47
+#define BSP_GPIO_IRQ_BASE 41
+#define BSP_SYS_GPIO_IRQ_BASE 47
 #define SOC_TYPE_SG2002
 #define BOARD_TYPE_MILKV_DUO256M
 
